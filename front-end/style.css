@@ -1,0 +1,104 @@
+body{
+    background-color: black;
+}
+#modal-dialog{
+    border: none;
+}
+
+.c-instruction{
+ text-align: center; 
+}
+.c-instruction .instruction{
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+}
+.pay-method{
+    display: flex;
+    justify-content: space-between;
+    column-gap: 30px;
+    margin-top: 15px;
+}
+.pay-method .logo{
+  width: 70px;
+  height: 20px;
+  align-self: center;
+}
+
+.pay-code h5,.amount h5,.time h5{
+    color: silver;
+}
+.time{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  column-gap: 30px;
+
+}
+.time .right{
+  align-self: center;
+  
+}
+.time .right #countdown{
+  background-color: red;
+  font-weight: bold;
+  width: 150px; 
+  text-align: center; 
+  color: white;
+  border-radius: 20px;
+}
+.time #time_text{
+  font-size: 20px;
+}
+.close{
+    position: absolute;
+    cursor: pointer;
+    right: 0;
+    top: 3;
+    font-weight: bold;
+    width: 25px;
+    height: 30px;
+    text-align: center;
+    margin-right: 10px;
+    font-size: large;
+}
+.close:hover{
+  background-color: silver;
+  border-radius: 4px;
+}
+.lds-dual-ring {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+  }
+  .lds-dual-ring:after {
+    content: " ";
+    display: block;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border-radius: 50%;
+    border: 6px solid blue;
+    border-color: blue transparent blue transparent;
+    animation: lds-dual-ring 1.2s linear infinite;
+  }
+  @keyframes lds-dual-ring {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+#loading{
+    border:none;
+    background-color: transparent;
+}
+.c-qrcode{
+  text-align: center;
+}
+img.qrcode{
+  width: 250px;
+  height: 250px;
+}

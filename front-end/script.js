@@ -25,7 +25,7 @@ function setCountDown(){
   timerCount.innerText = `${dayCounter/86400<=9?'0'+dayCounter/86400:dayCounter/86400} Day, ${hoursCounter/3600<=9?'0'+hoursCounter/3600:hoursCounter/3600}:${minutesCounter/60<=9?'0'+minutesCounter/60:minutesCounter/60}:${secondsCounter<=9?'0'+secondsCounter:secondsCounter}`
   setTimeout(()=>{
     if(dayCounter === 0 && hoursCounter===0 && minutesCounter===0 && secondsCounter===0){
-      console.log('berakhir')
+      
       return
     }
     if(hoursCounter === 0){
@@ -49,7 +49,6 @@ function setCountDown(){
     secondsCounter-=1
     setCountDown()
   },1000)
-  console.log(`${hoursCounter/3600<=9?'0'+hoursCounter/3600:hoursCounter/3600}:${minutesCounter/60<=9?'0'+minutesCounter/60:minutesCounter/60}:${secondsCounter<=9?'0'+secondsCounter:secondsCounter}`)
 }
 
 function getDateExpired(expired){
@@ -68,14 +67,12 @@ function setDiffTime(timeExpired,timeNow){
 
   const [dateExpired,hoursExpired,minutesExpired,secondsExpired] = timeExpired
   const [dateNow,hoursNow,minutesNow,secondsNow] = timeNow
-  console.log(timeExpired,timeNow)
-  console.log(Math.abs((dateExpired-dateNow))*3600*24)
+
   dayCounter = Math.abs(dateExpired-dateNow)*3600*24
   hoursCounter = Math.abs(hoursExpired - hoursNow)*3600
   minutesCounter =Math.abs(minutesExpired-minutesNow)*60
   secondsCounter = Math.abs(secondsExpired-secondsNow) 
-  console.log(dayCounter/86400,hoursCounter/3600,minutesCounter/60,secondsCounter)
-  return 
+ 
 }
 async function pay(){
   try {
@@ -100,7 +97,6 @@ async function pay(){
       })
     })
     const result = await data.json()
-    console.log(result)
     if(result.status_code === '406'){
       throw {message:'order id sudah pernah digunakan'}
     }else if(result.status_code === '500' || result.status_code === '900'){
@@ -123,7 +119,6 @@ async function pay(){
       qrcode.setAttribute('src',`${result.actions[0].url}`)
       containerPayCode.style.display = 'none'
       containerAmount.style.textAlign = 'center'
-      // containerAmount.style.display = 'none'
     }else{
       titleLogo.innerText = 'Alfamart'
       logo.setAttribute('src','./image/alfamart.png')
@@ -131,7 +126,6 @@ async function pay(){
       containerQrcode.style.display = 'none'
     }  
   } catch (error) {
-    console.log(error)
     loading.close()
     Swal.fire({
       icon: "error",
